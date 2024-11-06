@@ -13,6 +13,8 @@
 # include <string>
 # include <cstdint>
 
+# define min(x, y)	((x < y) ? x : y)
+
 class ClapTrap
 {
 	private:
@@ -29,19 +31,6 @@ class ClapTrap
 		ClapTrap &operator=(const ClapTrap &copy);
 		~ClapTrap(void);
 
-		// get
-		std::string	getName(void) const;
-		uint32_t	getHP(void) const;
-		uint32_t	getEP(void) const;
-		uint32_t	getAP(void) const;
-
-		// set
-		void	setName(const std::string &name);
-		void	setHP(const uint32_t &value);
-		void	setEP(const uint32_t &value);
-		void	setAP(const uint32_t &value);
-
-		// misc
 		void	attack(const std::string &target);
 		void	takeDamage(uint32_t amount);
 		void	beRepaired(uint32_t amount);

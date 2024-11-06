@@ -72,7 +72,7 @@ void	ClapTrap::takeDamage(uint32_t amount)
 		return ;
 	}
 	std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage!" << std::endl;
-	this->_hp -= std::min(this->_hp, amount);
+	this->_hp -= min(this->_hp, amount);
 }
 
 void	ClapTrap::beRepaired(uint32_t amount)

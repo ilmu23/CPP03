@@ -13,6 +13,8 @@
 # include <string>
 # include <cstdint>
 
+# define min(x, y)	((x < y) ? x : y)
+
 class ClapTrap
 {
 	private:

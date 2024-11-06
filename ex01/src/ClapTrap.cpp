@@ -49,52 +49,6 @@ ClapTrap::~ClapTrap(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-// get
-
-std::string	ClapTrap::getName(void) const
-{
-	return this->_name;
-}
-
-uint32_t	ClapTrap::getHP(void) const
-{
-	return this->_hp;
-}
-
-uint32_t	ClapTrap::getEP(void) const
-{
-	return this->_ep;
-}
-
-uint32_t	ClapTrap::getAP(void) const
-{
-	return this->_ap;
-}
-
-// set
-
-void	ClapTrap::setName(const std::string &name)
-{
-	this->_name = name;
-}
-
-void	ClapTrap::setHP(const uint32_t &value)
-{
-	this->_hp = value;
-}
-
-void	ClapTrap::setEP(const uint32_t &value)
-{
-	this->_ep = value;
-}
-
-void	ClapTrap::setAP(const uint32_t &value)
-{
-	this->_ap = value;
-}
-
-// misc
-
 void	ClapTrap::attack(const std::string &target)
 {
 	if (!this->_hp || !this->_ep)
@@ -118,7 +72,7 @@ void	ClapTrap::takeDamage(uint32_t amount)
 		return ;
 	}
 	std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage!" << std::endl;
-	this->_hp -= std::min(this->_hp, amount);
+	this->_hp -= min(this->_hp, amount);
 }
 
 void	ClapTrap::beRepaired(uint32_t amount)
