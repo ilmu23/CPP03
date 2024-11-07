@@ -18,11 +18,11 @@ int	main(void)
 	ScavTrap	steven("Steven");
 	FragTrap	john("John");
 
-	nameless.attack(steve.getName());
-	steve.takeDamage(nameless.getAP());
-	steven.attack(steve.getName());
-	steve.takeDamage(steven.getAP());
-	steve.attack(steven.getName());
+	nameless.attack("Steve");
+	steve.takeDamage(0);
+	steven.attack("Steve");
+	steve.takeDamage(20);
+	steve.attack("Steven");
 	steven.beRepaired(50);
 	john.highFivesGuys();
 	steven.guardGate();

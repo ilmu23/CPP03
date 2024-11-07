@@ -16,11 +16,11 @@ int	main(void)
 	ClapTrap	steve("Steve");
 	ScavTrap	steven("Steven");
 
-	nameless.attack(steve.getName());
-	steve.takeDamage(nameless.getAP());
-	steven.attack(steve.getName());
-	steve.takeDamage(steven.getAP());
-	steve.attack(steven.getName());
+	nameless.attack("Steve");
+	steve.takeDamage(0);
+	steven.attack("Steve");
+	steve.takeDamage(20);
+	steve.attack("Steven");
 	steven.beRepaired(50);
 	steven.guardGate();
 	return 0;

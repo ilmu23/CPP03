@@ -13,17 +13,17 @@
 ScavTrap::ScavTrap(void): ClapTrap()
 {
 	std::cout << "Default ScavTrap constructor called" << std::endl;
-	this->setHP(100);
-	this->setEP(50);
-	this->setAP(20);
+	this->_hp = 100;
+	this->_ep = 50;
+	this->_ap = 20;
 }
 
 ScavTrap::ScavTrap(const std::string &name): ClapTrap(name)
 {
 	std::cout << "Named ScavTrap constructor called" << std::endl;
-	this->setHP(100);
-	this->setEP(50);
-	this->setAP(20);
+	this->_hp = 100;
+	this->_ep = 50;
+	this->_ap = 20;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copy)
@@ -35,10 +35,10 @@ ScavTrap::ScavTrap(const ScavTrap &copy)
 ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
 {
 	std::cout << "Copy assignment ScavTrap operator called" << std::endl;
-	this->setName(copy.getName());
-	this->setHP(copy.getHP());
-	this->setEP(copy.getEP());
-	this->setAP(copy.getAP());
+	this->_name = copy._name;
+	this->_hp = copy._hp;
+	this->_ep = copy._ep;
+	this->_ap = copy._ap;
 	return *this;
 }
 
@@ -49,28 +49,28 @@ ScavTrap::~ScavTrap(void)
 
 void	ScavTrap::attack(const std::string &target)
 {
-	if (!this->getHP() || !this->getEP())
+	if (!this->_hp || !this->_ep)
 	{
-		if (!this->getHP())
-			std::cout << "ScavTrap " << this->getName() << "is dead!" << std::endl;
-		else if (!this->getEP())
-			std::cout << "ScavTrap " << this->getName() << " is out of energy!" << std::endl;
+		if (!this->_hp)
+			std::cout << "ScavTrap " << this->_name << "is dead!" << std::endl;
+		else if (!this->_ep)
+			std::cout << "ScavTrap " << this->_name << " is out of energy!" << std::endl;
 		return ;
 	}
-	std::cout << "ScavTrap " << this->getName() << " attacks " << target
-		<< ", causing " << this->getAP() << " points of damage!" << std::endl;
-	this->setEP(this->getEP() - 1);
+	std::cout << "ScavTrap " << this->_name << " attacks " << target
+		<< ", causing " << this->_ap << " points of damage!" << std::endl;
+	this->_ep--;
 }
 
 void	ScavTrap::guardGate(void)
 {
-	if (!this->getHP() || !this->getEP())
+	if (!this->_hp || !this->_ep)
 	{
-		if (!this->getHP())
-			std::cout << "ScavTrap " << this->getName() << "is dead!" << std::endl;
-		else if (!this->getEP())
-			std::cout << "ScavTrap " << this->getName() << " is out of energy!" << std::endl;
+		if (!this->_hp)
+			std::cout << "ScavTrap " << this->_name << "is dead!" << std::endl;
+		else if (!this->_ep)
+			std::cout << "ScavTrap " << this->_name << " is out of energy!" << std::endl;
 		return ;
 	}
-	std::cout << "ScavTrap " << this->getName() << " is now in Gate keeper mode!" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode!" << std::endl;
 }

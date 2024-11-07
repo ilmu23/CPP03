@@ -13,17 +13,17 @@
 FragTrap::FragTrap(void): ClapTrap()
 {
 	std::cout << "Default FragTrap constructor called" << std::endl;
-	this->setHP(100);
-	this->setEP(100);
-	this->setAP(30);
+	this->_hp = 100;
+	this->_ep = 100;
+	this->_ap = 30;
 }
 
 FragTrap::FragTrap(const std::string &name): ClapTrap(name)
 {
 	std::cout << "Named FragTrap constructor called" << std::endl;
-	this->setHP(100);
-	this->setEP(100);
-	this->setAP(30);
+	this->_hp = 100;
+	this->_ep = 100;
+	this->_ap = 30;
 }
 
 FragTrap::FragTrap(const FragTrap &copy)
@@ -35,10 +35,10 @@ FragTrap::FragTrap(const FragTrap &copy)
 FragTrap	&FragTrap::operator=(const FragTrap &copy)
 {
 	std::cout << "Copy assignment FragTrap operator called" << std::endl;
-	this->setName(copy.getName());
-	this->setHP(copy.getHP());
-	this->setEP(copy.getEP());
-	this->setAP(copy.getAP());
+	this->_name = copy._name;
+	this->_hp = copy._hp;
+	this->_ep = copy._ep;
+	this->_ap = copy._ap;
 	return *this;
 }
 
@@ -49,14 +49,14 @@ FragTrap::~FragTrap(void)
 
 void	FragTrap::highFivesGuys(void)
 {
-	if (!this->getHP() || !this->getEP())
+	if (!this->_hp || !this->_ep)
 	{
-		if (!this->getHP())
-			std::cout << "ScavTrap " << this->getName() << "is dead!" << std::endl;
-		else if (!this->getEP())
-			std::cout << "ScavTrap " << this->getName() << " is out of energy!" << std::endl;
+		if (!this->_hp)
+			std::cout << "ScavTrap " << this->_name << "is dead!" << std::endl;
+		else if (!this->_ep)
+			std::cout << "ScavTrap " << this->_name << " is out of energy!" << std::endl;
 		return ;
 	}
-	std::cout << "FragTrap " << this->getName() << " gives free high fives!" << std::endl;
-	this->setEP(this->getEP() - 1);
+	std::cout << "FragTrap " << this->_name << " gives free high fives!" << std::endl;
+	this->_ep--;
 }
